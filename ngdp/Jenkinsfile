@@ -1,2 +1,10 @@
 @Library('NGDP-Jenkins-Shared-Library@master') _
-ngdpPipeline agentLabel: 'master'
+
+def data = [
+  "debug": "true",
+  "k2": "v2",
+  "k3": "v3",
+]
+
+ngdpPipeline data
+    agentLabel: 'master'
