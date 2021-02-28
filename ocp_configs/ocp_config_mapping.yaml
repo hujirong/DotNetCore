@@ -1,0 +1,19 @@
+# Config mapping file for NGDP pipeline to generate OCP configmaps from raw configs in the repository (configs git repo)
+
+version: 1
+
+# Raw config files to OCP configmap conversion mapping (these gets created using 'oc create configmap -h')
+configs:
+  # App config
+  - configmap_name: "{{APP_NAME}}-cfg-appenv"
+    from_env_file: app_cfg.env
+    configmap_key: appenv
+#      only_environment / except_environments:
+#        - dev
+# Note: by default ampping appliyed to all deploy environment if there is no 'only_environmnets' or 'exception_environments' is specified
+  # Vault config
+  - configmap_name: "{{APP_NAME}}-ocp-secret-mapping"
+    from_file: ocp_secret_mapping.yaml
+    configmap_key: ocp_secret_mapping.yaml
+
+# Notes: ocp_secret_mapping.yaml is a special file and it need not to be in hte environment directory to use it as one of the maapping entry

@@ -1,0 +1,8 @@
+# By dfault APP_NAME will be set to REPONAME-BRANCHNAME for feature branches and REPONAME for release branches
+#  APP_NAME=openshift-ngdp-dotnet
+
+# NGDP pipelline will inject 'IMAGE' from a new build, this will get overriden even if it is set
+# example: docker-secure-zpl0.rbcartifactory.fg.rbc.com/tmp/openshift-ngdp-dotnet:latest-dev
+IMAGE=NONE
+
+VAULT_ENV=DEV
