@@ -1,0 +1,48 @@
+version: 1
+language: dotnet21
+platform: ocp
+
+build_command: dotnet publish --configuration Release
+
+# test_command
+  # - dotnet test
+
+# Configuration and Secret Management:
+# For more info, see https://rbc-confluence.fg.rbc.com/DNAKB//NGDP+Configration+and+Secret+Management+for+OCP
+app_configs:
+  repo: openshift-ngdp-dotnet
+  service_directory: ocp_configs
+  # branch: master # (optional) default to master
+
+release_branches:
+  - master
+
+aqua_parameters:
+  artifactory_location: docker://docker-secure-zpl0.rbcartifactory.fg.rbc.com/openshift-ngdp-dotnet
+
+analysis:
+  sonar_qube:
+    project_id: ZPL0:openshift-ngdp-dotnet
+    minimum_coverage: 0
+    minimum_test_success_density: 0
+  nexus_iq:
+    application_id: ZPL0_openshift_ngdp_dotnet
+    stage: build
+  checkmarx:
+    app_name: ZPL0_openshift_ngdp_dotnet
+
+deploy:
+  # deployment_environments: ["DEV","QA","UAT",] # apply to feature branches only
+  # deployment_environments: ["DEV"] # apply to feature branches only
+  # auto_prod_deploy: false
+  auto_prod_deploy: true
+  application: ZPL0_openshift_ngdp_dotnet
+  component: ZPL0_openshift_ngdp_dotnet
+  template: RCL0_J3J0_OCP_COMPONENT_TEMPLATE
+  version: '0.1.0'
+  process: Deploy_OCP_Services
+  artifact_files:
+    - 'openshift/**'
+
+piv_commnads:
+  - echo "Deployment is verified"

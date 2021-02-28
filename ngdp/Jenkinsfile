@@ -1,0 +1,2 @@
+@Library('NGDP-Jenkins-Shared-Library') _
+ngdpPipeline agentLabel: 'master'
