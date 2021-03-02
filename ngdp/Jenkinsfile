@@ -6,5 +6,4 @@ def data = [
   "k3": "v3",
 ]
 
-ngdpPipeline data
-    agentLabel: 'master'
+ngdpPipeline agentLabel: 'master'
