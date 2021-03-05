@@ -1,6 +1,7 @@
 version: 1
 language: dotnet21
-platform: ocp
+#platform: ocp
+platform: azure
 
 build_command: dotnet publish --configuration Release
 
