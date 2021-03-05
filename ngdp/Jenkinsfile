@@ -1,3 +1,4 @@
+@Library('AquaScan-Jenkins-Shared-Library@master') _
 @Library('NGDP-Jenkins-Shared-Library@master') _
 
 def data = [
