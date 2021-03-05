@@ -1,9 +1,3 @@
 @Library(['AquaScan-Jenkins-Shared-Library@master','NGDP-Jenkins-Shared-Library@master']) _
 
-def data = [
-  "debug": "true",
-  "k2": "v2",
-  "k3": "v3",
-]
-
 ngdpPipeline agentLabel: 'master'
