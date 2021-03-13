@@ -5,7 +5,7 @@ platform: azure
 
 build_command: dotnet publish --configuration Release
 
-test_command
+test_command:
   - dotnet test
 
 # Configuration and Secret Management:
