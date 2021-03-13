@@ -5,8 +5,8 @@ platform: azure
 
 build_command: dotnet publish --configuration Release
 
-# test_command
-  # - dotnet test
+test_command
+  - dotnet test
 
 # Configuration and Secret Management:
 # For more info, see https://rbc-confluence.fg.rbc.com/DNAKB//NGDP+Configration+and+Secret+Management+for+OCP
@@ -20,6 +20,19 @@ release_branches:
 
 aqua_parameters:
   artifactory_location: docker://docker-secure-zpl0.rbcartifactory.fg.rbc.com/openshift-ngdp-dotnet
+
+nexus:
+  static_content:
+    version:
+    dir_to_tar:
+  nuget:
+    csproj_file_path:
+  npm:
+    package_json_file_path:
+  pypi:
+    setup_py_file_path:
+  application_project: y
+
 
 analysis:
   sonar_qube:
